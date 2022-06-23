@@ -8,7 +8,7 @@ public class Caddie<String> implements Iterable<String>{
         this.myList = l;
     }
     public void ajouter(String ref){
-         myList.add(ref);
+         myList.add(0,ref);
     }
     public void enlever(String ref){
          myList.remove(ref);

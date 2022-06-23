@@ -13,10 +13,12 @@ public class BaseArticles {
           int index = -1;
           for (int i = 0; i < myKeys.size(); i++){
                if ( myKeys.get(i).equals(ref)) {
-
                     index = i;
                     break;
                }
+          }
+          if (index == -1){
+               throw new ReferenceInconnueException("could not find the reference "+ref);
           }
           return listOfarticles.get(myKeys.get(index));
      }

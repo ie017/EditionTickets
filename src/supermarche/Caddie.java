@@ -3,14 +3,17 @@ import java.lang.*;
 import java.util.*;
 
 public class Caddie<String> implements Iterable<String>{
-    private List<String> myList = new ArrayList<String>();
-    private void ajouter(String ref){
+    public List<String> myList = new ArrayList<String>();
+    public Caddie(List<String> l){
+        this.myList = l;
+    }
+    public void ajouter(String ref){
          myList.add(ref);
     }
-    private void enlever(String ref){
+    public void enlever(String ref){
          myList.remove(ref);
     }
-    private void enleverTous(String ref){
+    public void enleverTous(String ref){
          myList.removeAll(Collections.singleton(ref));
     }
 
@@ -18,4 +21,5 @@ public class Caddie<String> implements Iterable<String>{
     public Iterator<String> iterator() {
         return myList.iterator();
     }
+
 }

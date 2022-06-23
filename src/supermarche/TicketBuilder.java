@@ -2,16 +2,17 @@ package supermarche;
 import java.util.*;
 
 public class TicketBuilder {
-   private Ticket ticket = new Ticket();
-   private Map<long, String> listvalide = new HashMap<String, long>();
-   private Ticket getTicket(){
-
+   protected Map<String, Double> listvalide = new HashMap<String, Double>();
+   protected Ticket getTicket(){
+      Ticket ticket = new Ticket();
+      ticket.listeImprimer = listvalide;
+      return ticket;
    }
-   protected void ajouterArticle(String libelle, long prix){
-
+   protected void ajouterArticle(String libelle, double prix){
+      listvalide.put(libelle,prix);
    }
-   private void definirNumero(int numero){
-
+   protected void definirNumero(int numero){
+      System.out.println("Ticket numéro "+numero);
    }
 
 }

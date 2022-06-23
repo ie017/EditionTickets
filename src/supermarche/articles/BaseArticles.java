@@ -2,23 +2,23 @@ package supermarche.articles;
 import java.util.*;
 
 public class BaseArticles {
-     private Map<String, Article> listOfarticles;
+     public Map<String, Article> listOfarticles;
 
      public BaseArticles() {
           this.listOfarticles = new HashMap<String, Article>();
      }
 
      public Article article(String ref) throws ReferenceInconnueException {
-          Article value = null;
-          for (Map.Entry<String, Article> pair : listOfarticles.entrySet()) {
-               if (pair.getKey().equals(ref)) {
-                    value = pair.getValue();
+          List<String> myKeys = new ArrayList(listOfarticles.keySet());
+          int index = -1;
+          for (int i = 0; i < myKeys.size(); i++){
+               if ( myKeys.get(i).equals(ref)) {
+
+                    index = i;
                     break;
-               } else {
-                    throw new ReferenceInconnueException("Could not find article with ref " + ref);
                }
           }
-          return value;
+          return listOfarticles.get(myKeys.get(index));
      }
 
      private void supprimer(String ref) throws ReferenceInconnueException {
@@ -32,7 +32,7 @@ public class BaseArticles {
           }
      }
 
-     private void enregistrer(String ref, Article a) {
+     public void enregistrer(String ref, Article a) {
           listOfarticles.put(ref, a);
      }
 }
